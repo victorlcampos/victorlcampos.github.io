@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victor Campos — Open Source</title>
+<meta name="description" content="54 projetos open source de Victor Campos. Home focada nos últimos 5: vitals, meridian, grove, aditor, slop-games.">
+<style>
+:root{--bg:#0a0a0f;--fg:#f2f0ea;--mut:#a7a29b;--line:#ffffff18;--acc:#ffb000}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:#0a0a0fd9;border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:16px;padding:14px 20px}
+.logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#ffb000,#ff4d00,#7c3aed,#00e5ff);display:grid;place-items:center;font-weight:900;color:#000}
+nav{margin-left:auto;display:flex;gap:16px;font-size:14px;color:var(--mut)}
+nav a{text-decoration:none}nav a:hover{color:#fff}
+.hero{padding:72px 0 30px;text-align:left}
+.kicker{display:inline-flex;gap:8px;align-items:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#000;background:var(--acc);padding:6px 12px;border-radius:999px;font-weight:800}
+.hero h1{font-size:clamp(38px,6vw,68px);line-height:.95;margin:18px 0 12px;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#ffb000,#ff4d00,#ff2fb3,#7c3aed,#00e5ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);font-size:clamp(15px,2vw,19px);max-width:760px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+.stat{border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;color:var(--mut)}
+.stat b{color:#fff;font-size:18px;display:block}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none;border:1px solid var(--line)}
+.btn.solid{background:#fff;color:#000;border-color:#fff}
+.btn.ghost{color:#fff}
+.section-title{margin:54px 0 8px;display:flex;align-items:baseline;gap:12px}
+.section-title h2{margin:0;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+.section-title .n{font-size:12px;color:var(--mut)}
+/* Generic showcase card */
+.show{border-radius:22px;overflow:hidden;margin:26px 0;border:1px solid var(--line)}
+.show-inner{display:grid;grid-template-columns:1.05fr .95fr}
+@media(max-width:900px){.show-inner{grid-template-columns:1fr}}
+.show-copy{padding:34px}
+.show-copy .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.8;font-weight:800}
+.show-copy h3{font-size:clamp(28px,4vw,44px);margin:10px 0 8px;letter-spacing:-.02em}
+.show-copy .pitch{font-size:16px;line-height:1.55;color:#ffffffd9}
+.bullets{margin:16px 0;padding:0;list-style:none;display:grid;gap:8px;font-size:14px}
+.bullets li:before{content:"✓ ";font-weight:900}
+.cmd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:#00000070;border:1px solid #ffffff22;padding:10px 12px;border-radius:10px;overflow:auto;white-space:nowrap}
+.links{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.links a{font-size:13px;font-weight:800;text-decoration:none;padding:10px 14px;border-radius:10px;border:1px solid #ffffff2e}
+.show-demo{padding:28px;display:flex;flex-direction:column;justify-content:center;gap:12px;min-height:320px}
+/* 1 VITALS — phosphor terminal */
+#s-vitals{background:linear-gradient(180deg,#04140a,#020805);border-color:#00ff8866}
+#s-vitals .show-copy .tag{color:#00ff88}
+#s-vitals .bullets li:before{color:#00ff88}
+#s-vitals .demo-term{background:#000;border:1px solid #00ff8855;border-radius:14px;padding:16px;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#c8ffdf;box-shadow:0 0 60px #00ff8822 inset}
+.bar{height:10px;border-radius:99px;background:#ffffff14;overflow:hidden;margin:6px 0 10px}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#00ff88,#b6ff00,#ffb000,#ff3b30)}
+/* 2 MERIDIAN — navy gold */
+#s-meridian{background:linear-gradient(135deg,#0b1026,#1b1440 60%,#2b1a08);border-color:#e8c15a55}
+#s-meridian .show-copy{font-family:Georgia,serif}
+#s-meridian .show-copy .tag{color:#e8c15a}
+#s-meridian .clock{font-variant-numeric:tabular-nums;font-size:clamp(44px,7vw,76px);letter-spacing:.02em;color:#ffe9b0;text-shadow:0 0 30px #e8c15a55}
+#s-meridian .demo-card{background:#ffffff0d;border:1px solid #e8c15a44;border-radius:16px;padding:18px;text-align:center}
+/* 3 GROVE — forest */
+#s-grove{background:linear-gradient(180deg,#07120c,#0c1f14);border-color:#7ee2a866}
+#s-grove .show-copy .tag{color:#7ee2a8}
+#s-grove .wt{background:#00000080;border:1px solid #7ee2a844;border-radius:12px;padding:12px 14px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.7}
+/* 4 ADITOR — studio orange */
+#s-aditor{background:linear-gradient(135deg,#160903,#2a1206 55%,#0f0f12);border-color:#ff790055}
+#s-aditor .show-copy .tag{color:#ff7900}
+#s-aditor .tl{display:flex;gap:6px;align-items:center}
+#s-aditor .tl span{height:44px;border-radius:8px}
+.json{background:#000;border:1px solid #ff790055;border-radius:12px;padding:12px;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#ffd9b8}
+/* 5 SLOP — arcade */
+#s-slop{background:linear-gradient(135deg,#ff2fb3,#7c3aed 45%,#00e5ff);border-color:#ffffff44}
+#s-slop .show-copy{background:#0a0a0fd9;margin:14px;border-radius:16px}
+#s-slop .show-copy .tag{color:#00e5ff}
+.games{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:520px){.games{grid-template-columns:1fr}}
+.game{background:#ffffff10;border:1px solid #ffffff2c;border-radius:14px;padding:12px;font-size:13px}
+.game b{font-size:20px}
+/* Archive */
+.toolbar{display:flex;gap:10px;margin:14px 0;flex-wrap:wrap}
+.toolbar input,.toolbar select{background:#13131a;color:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px}
+.toolbar input{flex:1;min-width:220px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#121218}
+.card h4{margin:0 0 6px;font-size:15px}
+.card h4 a{text-decoration:none}.card h4 a:hover{text-decoration:underline}
+.card p{margin:0 0 10px;font-size:13px;color:var(--mut);min-height:36px}
+.meta{display:flex;gap:8px;font-size:11px;color:var(--mut);flex-wrap:wrap}
+.meta span{border:1px solid var(--line);padding:3px 8px;border-radius:99px}
+footer{padding:40px 0 70px;color:var(--mut);font-size:13px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<div class="logo">V</div><div><b>victorlcampos</b><div style="font-size:12px;color:var(--mut)">54 open-source · sem forks</div></div>
+<nav><a href="#destaques">Últimos 5</a><a href="#arquivo">Arquivo 54</a><a href="https://github.com/victorlcampos">GitHub →</a></nav>
+</div></header>
+<div class="wrap">
+<div class="hero">
+<span class="kicker">● home focada nos últimos 5 · arquivo com os 54</span>
+<h1>Código que <em>vende a ideia sozinho.</em></h1>
+<p>Sou <b>Victor Campos</b>. Estes são meus projetos open source — do mais recente ao mais antigo. Em cima, os <b>5 últimos</b>, cada um com sua própria identidade vendedora. Embaixo, o <b>arquivo completo navegável</b> com todos os 54.</p>
+<div class="stats">
+<div class="stat"><b>54</b>repos próprios, públicos, não-fork</div>
+<div class="stat"><b>4× Rust</b>no topo: vitals · meridian · grove · aditor</div>
+<div class="stat"><b>2012 → 2026</b>14 anos de open source</div>
+<div class="stat"><b>★ 61</b>maior star: aprenda_rails_da_maneira_facil</div>
+</div>
+<div class="cta">
+<a class="btn solid" href="#destaques">Ver os últimos 5 ↓</a>
+<a class="btn ghost" href="#arquivo">Buscar nos 54</a>
+<a class="btn ghost" href="https://github.com/victorlcampos?tab=repositories">github.com/victorlcampos →</a>
+</div>
+</div>
+
+<div class="section-title" id="destaques"><h2>Destaques — os últimos 5</h2><span class="n">do mais recente ao mais antigo · cada um com estilo próprio</span></div>
+
+<!-- 1 VITALS -->
+<section class="show" id="s-vitals"><div class="show-inner">
+<div class="show-copy">
+<div class="tag">#1 · 26 set 2026 · Rust · Terminal HUD</div>
+<h3>vitals</h3>
+<p class="pitch"><b>O htop perdeu a barriga.</b> Cabeçalho do htop sem a lista de processos — CPU de verdade (80%, nunca 800%), memória do jeito que o SO conta, swap, discos, temperatura — <b>mais quanto da sua cota de IA já foi</b>. E cabe até numa tirinha de 1 linha.</p>
+<ul class="bullets"><li>CPU como fração da máquina + cada núcleo + load como % dos cores</li><li>Painel <b>AI limits</b>: Claude Code e Codex, sessão de 5h + semana, com countdown</li><li>50 temas, layout que se recalcula a cada resize, &lt;1% de CPU, PT/EN</li></ul>
+<div class="cmd">cargo install --git https://github.com/victorlcampos/vitals</div>
+<div class="links"><a href="https://github.com/victorlcampos/vitals" style="background:#00ff88;color:#00331a;border-color:#00ff88">★ Ver no GitHub</a><a href="https://github.com/victorlcampos/vitals#install">Instalar em 1 comando</a></div>
+</div>
+<div class="show-demo"><div class="demo-term">
+<div>● studio · Apple M4 Pro · 12 cores &nbsp;&nbsp; up 3d 5h · every 1s</div>
+<div style="margin-top:10px">CPU 40% · user 27% · sys 12% · 52°C</div><div class="bar"><i id="b1" style="width:40%"></i></div>
+<div>MEM 64% · 15.2G of 24.0G · pressure normal</div><div class="bar"><i id="b2" style="width:64%"></i></div>
+<div>Claude 5h 57% · resets 18:51 &nbsp;·&nbsp; Codex 7d 86%</div><div class="bar"><i id="b3" style="width:57%"></i></div>
+<div style="color:#7dffb8">t theme · v graph · c cores · l AI limits · q quit</div>
+</div><div style="font-size:12px;color:#7dffb8">↑ demo viva: as barras respiram sozinhas. No seu terminal, são 50 temas.</div></div>
+</div></section>
+
+<!-- 2 MERIDIAN -->
+<section class="show" id="s-meridian"><div class="show-inner">
+<div class="show-copy">
+<div class="tag">#2 · 25 set 2026 · Rust + ratatui · World Clock</div>
+<h3>meridian</h3>
+<p class="pitch"><b>Que horas são onde importa?</b> Um relógio de terminal com dígitos gigantes, uma aba por cidade, mapa-múndi ASCII com lado da noite, clima da próxima hora, seu próximo evento — e alarmes que fazem a tela piscar.</p>
+<ul class="bullets"><li>34.000 cidades, PT/EN, acentos opcionais: <i>sao paulo, Tóquio, Nova Iorque</i></li><li>Clima Open-Meteo + Calendário do Mac / iCal com lembrete de 5 min</li><li>Feito para tiling WM: redimensionou, o layout seguiu. Tudo salvo a cada toque.</li></ul>
+<div class="cmd">cargo install --git https://github.com/victorlcampos/meridian && meridian -c Tokyo -c London</div>
+<div class="links"><a href="https://github.com/victorlcampos/meridian" style="background:#e8c15a;color:#201500;border-color:#e8c15a">★ Ver no GitHub</a><a href="https://github.com/victorlcampos/meridian#calendar">Conectar agenda</a></div>
+</div>
+<div class="show-demo"><div class="demo-card">
+<div style="font-size:12px;letter-spacing:.2em;color:#e8c15a">TOKYO · LONDON · NEW YORK · SYDNEY</div>
+<div class="clock" id="liveclock">12:04</div>
+<div style="color:#ffe9b0" id="livedate">Saturday · JST · UTC+09:00</div>
+<div style="margin-top:8px;font-size:13px;color:#ffffffb0">Next event 01:39 Sprint planning · in 35m · Drizzle 21°C · rain 97%</div>
+<div style="margin-top:10px;font-size:11px;color:#e8c15a">c city · ←→ tabs · m map · t theme · a alarms</div>
+</div></div>
+</div></section>
+
+<!-- 3 GROVE -->
+<section class="show" id="s-grove"><div class="show-inner">
+<div class="show-copy">
+<div class="tag">#3 · 25 set 2026 · Rust · Agent Worktrees</div>
+<h3>grove</h3>
+<p class="pitch"><b>Suas worktrees viraram floresta. O grove é o mapa.</b> Qual worktree tem Claude, Codex ou OpenCode dentro, quem está esperando por você, quanto disco cada uma come — e <b>uma tecla para podar</b> o que ficou ocioso.</p>
+<ul class="bullets"><li>Estados vivos: ◆ espera por você · ⠸ trabalhando · ● idle · ○ livre p/ <b>D</b></li><li>Remove com <b>git worktree remove</b> de verdade, mostra comando + arquivos perdidos</li><li>Medido como <b>du</b>, em background, agrupado por repo. PT/EN.</li></ul>
+<div class="cmd">cargo install --git https://github.com/victorlcampos/grove && grove</div>
+<div class="links"><a href="https://github.com/victorlcampos/grove" style="background:#7ee2a8;color:#04220f;border-color:#7ee2a8">★ Ver no GitHub</a><a href="https://github.com/victorlcampos/grove#states">Ver legenda</a></div>
+</div>
+<div class="show-demo"><div class="wt">
+<div style="color:#7ee2a8">grove · 15 worktrees · ◆2 esperando · ⠸4 trabalhando · Σ 27.2 GB</div>
+<div>● board main &nbsp;✻ claude board-ui &nbsp; 1.4 GB ████▋···· 1h</div>
+<div>◆ checkout-coupons &nbsp;±15 ↑3 &nbsp;✻ claude coupon rules · 1.9 GB</div>
+<div>○ bench-cli &nbsp;1.8 GB · 12d &nbsp; <span style="color:#7ee2a8">[D remove idle]</span></div>
+<div>✗ tools-old-experiment · folder is gone —</div>
+<div style="margin-top:6px;color:#7ee2a8">↑↓ move · ⏎ details · d remove · D remove idle · / filter · q quit</div>
+</div></div>
+</div></section>
+
+<!-- 4 ADITOR -->
+<section class="show" id="s-aditor"><div class="show-inner">
+<div class="show-copy">
+<div class="tag">#4 · 08 set 2026 · Rust · Agentic Video ★2</div>
+<h3>aditor <span style="font-size:14px;vertical-align:middle;background:#ff7900;color:#000;padding:3px 9px;border-radius:99px;font-family:sans-serif">FROM AGENT ACTION → FINISHED VIDEO</span></h3>
+<p class="pitch"><b>Seu agente resolve. O aditor prova.</b> Capture a aba exata do Chrome, grave demos sem o chrome do browser, corte, acelere, mute — tudo por CLI com <b>--json</b>, IDs explícitos e exit codes que automação entende.</p>
+<ul class="bullets"><li><b>tabs / record / screenshot / stop</b> por tab ID ou seletor CSS exato</li><li><b>edit / cut / speed / crop / append / write / convert</b> em um comando</li><li>Binários p/ Mac / Linux / Windows + <b>aditor --update</b>. Site próprio no ar.</li></ul>
+<div class="cmd">aditor tabs --json && aditor record --tab ABC123 --duration 15 -o demo.mp4</div>
+<div class="links"><a href="https://github.com/victorlcampos/aditor" style="background:#ff7900;color:#000;border-color:#ff7900">★ Ver no GitHub</a><a href="https://victorlcampos.github.io/aditor/">Site interativo →</a><a href="https://github.com/victorlcampos/aditor/releases/latest">Download binário</a></div>
+</div>
+<div class="show-demo">
+<div class="tl"><span style="flex:2;background:#ff7900"></span><span style="flex:3;background:#ffb000"></span><span style="flex:1;background:#7c3aed"></span><span style="flex:1.5;background:#00e5ff"></span></div>
+<div style="font-size:12px;color:#ffb78a">00:02 cut ── 2× speed ── mute ── demo-final.mp4</div>
+<div class="json">{"ok":true,"output":"/Videos/demo-final.mp4",<br>&nbsp;"duration":10,"speed":2,"muted":true}</div>
+</div>
+</div></section>
+
+<!-- 5 SLOP -->
+<section class="show" id="s-slop"><div class="show-inner">
+<div class="show-copy">
+<div class="tag">🕹️ #5 · 04 set 2026 · JS · Zero-install games</div>
+<h3>slop-games</h3>
+<p class="pitch"><b>Clique duplo. Jogo aberto.</b> Uma coleção inteira onde cada jogo é <b>um único HTML</b> — sem servidor, sem conta, sem CDN. Sprites, sons e texturas nascem do código. E fala <b>PT + EN</b> com um toque na bandeira.</p>
+<ul class="bullets"><li>7 jogos: Zoo Tycoon 219 espécies · World Drive ruas reais · SkiFree 3D · Iron Rain…</li><li>Instalável (PWA): adiciona à home e joga <b>no avião</b></li><li>Contrato rígido: 1 HTML, zero CDN, abre por <b>file://</b>, testado em ~3s</li></ul>
+<div class="cmd">▶ Jogar agora — sem instalar nada</div>
+<div class="links"><a href="https://victorlcampos.github.io/slop-games/" style="background:#fff;color:#000;border-color:#fff">▶ Jogar</a><a href="https://github.com/victorlcampos/slop-games" style="color:#fff">★ Ver no GitHub</a></div>
+</div>
+<div class="show-demo"><div class="games">
+<div class="game"><b>🦁</b><br>Zoo Tycoon<br><span style="opacity:.7">219 espécies · offline</span></div>
+<div class="game"><b>🚗</b><br>World Drive<br><span style="opacity:.7">OpenStreetMap 3D</span></div>
+<div class="game"><b>⛷️</b><br>SkiFree 3D<br><span style="opacity:.7">fuja do Yeti</span></div>
+<div class="game"><b>🛸</b><br>Infinite Fortress<br><span style="opacity:.7">stealth procedural</span></div>
+</div><div style="font-size:12px;color:#fff">+ Animals vs Monsters · Flag War · Iron Rain — todos num HTML só.</div></div>
+</div></section>
+
+<div class="section-title" id="arquivo"><h2>Arquivo completo — 54 repos</h2><span class="n">do mais recente ao mais antigo · busca + filtro por linguagem</span></div>
+<div class="toolbar">
+<input id="q" placeholder="Buscar: ex. rust, rails, elixir, jogo, clock…">
+<select id="lang"><option value="">Todas linguagens</option></select>
+<select id="sort"><option value="new">Mais recentes primeiro</option><option value="old">Mais antigos primeiro</option><option value="stars">Mais stars primeiro</option></select>
+</div>
+<div class="grid" id="grid"></div>
+<p style="color:var(--mut);font-size:13px">Ordem padrão: push mais recente → mais antigo. Clique no nome para abrir o repo.</p>
+
+<footer>Feito por <b>Victor Campos</b> · <a href="https://github.com/victorlcampos">github.com/victorlcampos</a> · Todos os 54 acima são públicos, próprios e não-fork · Home em destaque: vitals, meridian, grove, aditor, slop-games.</footer>
+</div>
+<script>
+const REPOS=[
+["2026-09-26","vitals","Rust",0,"Monitor de terminal: CPU/memória/swap/discos + limites de IA (Claude e Codex). 50 temas, cabe em 1 linha.","https://github.com/victorlcampos/vitals"],
+["2026-09-25","meridian","Rust",0,"Relógio de terminal com mapa-múndi ASCII, fusos, clima, agenda e alarmes que piscam.","https://github.com/victorlcampos/meridian"],
+["2026-09-25","grove","Rust",0,"Dashboard de git worktrees: qual agente está onde, disco e remoção com git worktree remove.","https://github.com/victorlcampos/grove"],
+["2026-09-08","aditor","Rust",2,"Capture tabs. Record demos. Edit videos. CLI Rust para agentes, com JSON e captura precisa.","https://github.com/victorlcampos/aditor"],
+["2026-09-04","slop-games","JavaScript",0,"Jogos 100% no navegador, cada um num único HTML. Sem servidor, sem instalação.","https://github.com/victorlcampos/slop-games"],
+["2026-08-22","omarchy-slop-games","QML",0,"Catálogo slop-games na barra Omarchy: 10 jogos, um HTML cada, cada um na sua janela.","https://github.com/victorlcampos/omarchy-slop-games"],
+["2026-08-10","zoo-magnata","HTML",0,"Tycoon de zoológico num único HTML: 219 espécies procedurais, recintos livres, economia.","https://github.com/victorlcampos/zoo-magnata"],
+["2026-08-10","worlddrive","JavaScript",0,"Dirija em qualquer rua do mundo: 3D gerado de dados reais do OpenStreetMap.","https://github.com/victorlcampos/worlddrive"],
+["2026-01-21","agents_mds","—",7,"Guias agents.md: arquitetura e boas práticas Rails (Campfire, Fizzy, V360).","https://github.com/victorlcampos/agents_mds"],
+["2025-08-07","convitefacil","Ruby",1,"Convites fáceis em Ruby.","https://github.com/victorlcampos/convitefacil"],
+["2023-04-06","aprenda_rails_da_maneira_facil","—",61,"Aprenda Rails da maneira fácil.","https://github.com/victorlcampos/aprenda_rails_da_maneira_facil"],
+["2023-01-19","nplusone","Ruby",0,"Experimentos N+1 em Ruby.","https://github.com/victorlcampos/nplusone"],
+["2023-01-19","stimulusjs_game_of_life","Ruby",0,"Game of Life com StimulusJS + Rails.","https://github.com/victorlcampos/stimulusjs_game_of_life"],
+["2018-04-08","home-saving","JavaScript",0,"React Native / Expo experiment.","https://github.com/victorlcampos/home-saving"],
+["2018-03-14","install_redmine_ansible","—",0,"Instalação de Redmine com Ansible.","https://github.com/victorlcampos/install_redmine_ansible"],
+["2017-10-01","teste","—",0,"Repo de testes.","https://github.com/victorlcampos/teste"],
+["2016-11-05","angular-quickstart","TypeScript",0,"Quickstart Angular.","https://github.com/victorlcampos/angular-quickstart"],
+["2016-09-24","resolucoes-aprendizado-2016","—",22,"Minhas resoluções de aprendizado em 2016.","https://github.com/victorlcampos/resolucoes-aprendizado-2016"],
+["2016-09-13","indicadores_suporte","Ruby",0,"Indicadores de suporte em Ruby.","https://github.com/victorlcampos/indicadores_suporte"],
+["2016-08-08","dividaBem","TypeScript",5,"Ionic app para dividir a conta com os amigos.","https://github.com/victorlcampos/dividaBem"],
+["2016-07-25","freegeoipx","Elixir",2,"API client para freegeoip.net.","https://github.com/victorlcampos/freegeoipx"],
+["2016-07-25","rapidax","Elixir",1,"Desenvolva seu API client rapidamente — based on rapidash.","https://github.com/victorlcampos/rapidax"],
+["2016-02-14","gen_guardian","Elixir",9,"Nice generators for Guardian.","https://github.com/victorlcampos/gen_guardian"],
+["2016-01-30","curso-redmine","—",14,"Curso de Redmine.","https://github.com/victorlcampos/curso-redmine"],
+["2016-01-03","rapidax-example","Elixir",0,"Example app using Rapidax.","https://github.com/victorlcampos/rapidax-example"],
+["2015-12-31","phoenix-react-tutorial","Elixir",12,"React tutorial com Phoenix framework.","https://github.com/victorlcampos/phoenix-react-tutorial"],
+["2015-11-05","youtubex-parse","Elixir",0,"Parser YouTube em Elixir.","https://github.com/victorlcampos/youtubex-parse"],
+["2015-10-04","openportal","Ruby",1,"Portal aberto em Ruby.","https://github.com/victorlcampos/openportal"],
+["2015-09-06","cdc_ruby_on_rails_brasil","—",0,"Código de Conduta da comunidade Ruby on Rails Brasil.","https://github.com/victorlcampos/cdc_ruby_on_rails_brasil"],
+["2015-08-30","exercism-elixir","Elixir",0,"Exercism track Elixir.","https://github.com/victorlcampos/exercism-elixir"],
+["2015-08-25","spoj-elixir","Elixir",0,"Soluções SPOJ em Elixir.","https://github.com/victorlcampos/spoj-elixir"],
+["2015-08-23","chrome-extension-chat-everywhere","JavaScript",1,"Chrome extension: chat everywhere.","https://github.com/victorlcampos/chrome-extension-chat-everywhere"],
+["2015-08-15","phoenix-blog","Elixir",0,"Blog em Phoenix.","https://github.com/victorlcampos/phoenix-blog"],
+["2015-06-06","INcrawler","Ruby",0,"Crawler em Ruby.","https://github.com/victorlcampos/INcrawler"],
+["2015-02-18","redmine-activiti","Ruby",1,"Plugin Redmine + Activiti.","https://github.com/victorlcampos/redmine-activiti"],
+["2014-05-18","my-expenses-microservice","Ruby",0,"Microservice MyExpenses.","https://github.com/victorlcampos/my-expenses-microservice"],
+["2014-05-18","liberty-authentication","JavaScript",0,"Microservice de autenticação com Express.","https://github.com/victorlcampos/liberty-authentication"],
+["2014-05-18","my-expenses-single-page","JavaScript",0,"Single page view do MyExpenses.","https://github.com/victorlcampos/my-expenses-single-page"],
+["2014-05-05","angular-d3-3ddonut-directive","JavaScript",0,"Directives d3 3D donut.","https://github.com/victorlcampos/angular-d3-3ddonut-directive"],
+["2014-05-04","my-expenses","Puppet",0,"My Expenses project.","https://github.com/victorlcampos/my-expenses"],
+["2014-05-04","liberty-single-page-template","JavaScript",0,"Template grunt-init p/ single page.","https://github.com/victorlcampos/liberty-single-page-template"],
+["2014-04-27","liberty","Ruby",0,"Framework para microservices base.","https://github.com/victorlcampos/liberty"],
+["2014-04-27","liberty-microservice-express-template","JavaScript",0,"Template grunt-init p/ Express.","https://github.com/victorlcampos/liberty-microservice-express-template"],
+["2014-03-06","scaffold-mean-project","CSS",0,"Scaffolding MEAN p/ grunt-init.","https://github.com/victorlcampos/scaffold-mean-project"],
+["2014-01-05","chat","Ruby",0,"Chat em Ruby.","https://github.com/victorlcampos/chat"],
+["2014-01-01","cast2dev","Ruby",4,"Protótipo p/ Rails Cast do Grupo Ruby on Rails Brasil.","https://github.com/victorlcampos/cast2dev"],
+["2013-12-17","tripod_foaf_example","Ruby",0,"Exemplo Tripod FOAF.","https://github.com/victorlcampos/tripod_foaf_example"],
+["2013-10-13","TabuleiroOthello","Python",0,"Tabuleiro Othello em Python.","https://github.com/victorlcampos/TabuleiroOthello"],
+["2013-09-12","futwitter","Ruby",0,"Portal social de notícias baseado em Twitter.","https://github.com/victorlcampos/futwitter"],
+["2013-08-15","TrabalhoAD2","Java",0,"Trabalho AD2.","https://github.com/victorlcampos/TrabalhoAD2"],
+["2013-03-13","Triangles","Java",0,"Triangles em Java.","https://github.com/victorlcampos/Triangles"],
+["2013-01-17","sudokuSolver","Java",0,"Resolve Sudoku via Hill Climb ou Genético.","https://github.com/victorlcampos/sudokuSolver"],
+["2012-11-30","OthelloIA","Java",0,"Trabalho 01 de IA: Othello.","https://github.com/victorlcampos/OthelloIA"],
+["2012-08-08","MoipLib","Ruby",0,"Lib de integração com o Moip.","https://github.com/victorlcampos/MoipLib"]
+];
+const grid=document.getElementById('grid'),q=document.getElementById('q'),lang=document.getElementById('lang'),sort=document.getElementById('sort');
+[...new Set(REPOS.map(r=>r[2]))].sort().forEach(l=>{const o=document.createElement('option');o.value=l;o.textContent=l;lang.appendChild(o)});
+function render(){
+ let list=[...REPOS];
+ const term=q.value.toLowerCase();
+ if(term)list=list.filter(r=>(r[1]+' '+r[4]+' '+r[2]).toLowerCase().includes(term));
+ if(lang.value)list=list.filter(r=>r[2]===lang.value);
+ if(sort.value==='old')list.reverse();
+ if(sort.value==='stars')list.sort((a,b)=>b[3]-a[3]);
+ grid.innerHTML=list.map(r=>`<div class="card"><h4><a href="${r[5]}">${r[1]}</a></h4><p>${r[4]||'—'}</p><div class="meta"><span>${r[0]}</span><span>${r[2]}</span><span>★ ${r[3]}</span></div></div>`).join('');
+}
+[q,lang,sort].forEach(el=>el.addEventListener('input',render));render();
+// vitals bars breathe
+let t=0;setInterval(()=>{t+=.1;const b1=document.getElementById('b1'),b2=document.getElementById('b2'),b3=document.getElementById('b3');if(!b1)return;b1.style.width=(38+8*Math.sin(t))+'%';b2.style.width=(62+6*Math.sin(t*1.3))+'%';b3.style.width=(55+9*Math.sin(t*.7))+'%'},400);
+// meridian live clock
+function tick(){const d=new Date();const el=document.getElementById('liveclock');if(el)el.textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');const dd=document.getElementById('livedate');if(dd)dd.textContent=d.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'short'})+' · local';}setInterval(tick,10000);tick();
+</script>
+</body>
+</html>
