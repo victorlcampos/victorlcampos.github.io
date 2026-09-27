@@ -92,6 +92,24 @@ nav a{text-decoration:none}nav a:hover{color:#fff}
 .meta span{border:1px solid var(--line);padding:3px 8px;border-radius:99px;max-width:100%;overflow-wrap:anywhere}
 footer{padding:40px 0 70px;color:var(--mut);font-size:13px;overflow-wrap:break-word}
 .section-title{flex-wrap:wrap}
+/* ---- Histórico ---- */
+.hist{border:1px solid var(--line);border-radius:22px;padding:28px;background:linear-gradient(180deg,#12121c,#0a0a0f);margin:26px 0;overflow:hidden}
+.hist .tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);font-weight:800}
+.hist h3{font-size:clamp(24px,3.6vw,36px);margin:10px 0 8px;letter-spacing:-.02em}
+.hist p.sub{color:var(--mut);font-size:15px;line-height:1.6;max-width:720px;margin:0}
+.hist-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 6px}
+.hstat{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:#ffffff06}
+.hstat b{font-size:22px;display:block}
+.hstat span{font-size:12px;color:var(--mut)}
+.bars{display:grid;gap:7px;margin-top:14px}
+.brow{display:grid;grid-template-columns:44px 1fr 52px;gap:10px;align-items:center;font-size:12.5px;color:var(--mut)}
+.brow b{color:#fff;font-weight:700}
+.bnum{text-align:right;font-variant-numeric:tabular-nums;color:#fff}
+.btrack{height:12px;background:#ffffff10;border-radius:99px;overflow:hidden}
+.bfill{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#ffb000,#ff4d00,#ff2fb3,#7c3aed,#00e5ff)}
+.brow.peak .bnum{color:var(--acc);font-weight:800}
+.hist-foot{margin-top:14px;font-size:12.5px;color:var(--mut)}
+.hist-foot a{color:#fff;font-weight:700}
 /* ---- Responsivo ---- */
 @media(max-width:640px){
 .wrap{padding:0 14px}
@@ -113,6 +131,9 @@ nav{font-size:13px;gap:12px}
 .toolbar{flex-direction:column}
 .toolbar input{min-width:0;width:100%}
 .toolbar select{width:100%}
+.hist{padding:20px 16px}
+.hist-grid{grid-template-columns:1fr 1fr}
+.brow{grid-template-columns:40px 1fr 48px;font-size:12px}
 }
 @media(max-width:380px){
 .hero h1{font-size:30px}
@@ -124,7 +145,7 @@ nav{font-size:13px;gap:12px}
 <body>
 <header class="top"><div class="wrap">
 <div class="logo">V</div><div class="brand"><b>victorlcampos</b><small>rust · terminal · jogos</small></div>
-<nav><a href="#destaques">Comece aqui</a><a href="#arquivo">Arsenal</a><a href="https://github.com/victorlcampos">GitHub →</a></nav>
+<nav><a href="#destaques">Comece aqui</a><a href="#historico">Histórico</a><a href="#arquivo">Arsenal</a><a href="https://github.com/victorlcampos">GitHub →</a></nav>
 </div></header>
 <div class="wrap">
 <div class="hero">
@@ -238,6 +259,36 @@ nav{font-size:13px;gap:12px}
 <div class="game"><b>🛸</b><br>Infinite Fortress<br><span style="opacity:.7">stealth procedural</span></div>
 </div><div style="font-size:12px;color:#fff">+ Animals vs Monsters · Flag War · Iron Rain — todos num HTML só.</div></div>
 </div></section>
+
+<section class="hist" id="historico">
+<div class="tag">● histórico no GitHub · desde 2012</div>
+<h3>14 anos de GitHub não mentem.</h3>
+<p class="sub">Quem baixa uma ferramenta minha não aposta num repo de fim de semana. São <b style="color:#fff">~26 mil contribuições</b> — código aberto e profissional — com o ritmo mais forte justamente agora, nos CLIs em Rust que estão nesta página.</p>
+<div class="hist-grid">
+<div class="hstat"><b>~26 mil</b><span>contribuições desde 2012</span></div>
+<div class="hstat"><b>5.491</b><span>pico num ano (2021)</span></div>
+<div class="hstat"><b>3.514</b><span>só em 2026, até setembro</span></div>
+<div class="hstat"><b>93</b><span>repos públicos próprios</span></div>
+</div>
+<div class="bars">
+<div class="brow"><b>2012</b><div class="btrack"><i class="bfill" style="width:19.8%"></i></div><span class="bnum">1.088</span></div>
+<div class="brow"><b>2013</b><div class="btrack"><i class="bfill" style="width:23.7%"></i></div><span class="bnum">1.302</span></div>
+<div class="brow"><b>2014</b><div class="btrack"><i class="bfill" style="width:6.6%"></i></div><span class="bnum">364</span></div>
+<div class="brow"><b>2015</b><div class="btrack"><i class="bfill" style="width:6%"></i></div><span class="bnum">328</span></div>
+<div class="brow"><b>2016</b><div class="btrack"><i class="bfill" style="width:11.3%"></i></div><span class="bnum">620</span></div>
+<div class="brow"><b>2017</b><div class="btrack"><i class="bfill" style="width:4.8%"></i></div><span class="bnum">263</span></div>
+<div class="brow"><b>2018</b><div class="btrack"><i class="bfill" style="width:4.9%"></i></div><span class="bnum">269</span></div>
+<div class="brow"><b>2019</b><div class="btrack"><i class="bfill" style="width:57.8%"></i></div><span class="bnum">3.174</span></div>
+<div class="brow"><b>2020</b><div class="btrack"><i class="bfill" style="width:70.6%"></i></div><span class="bnum">3.877</span></div>
+<div class="brow peak"><b>2021</b><div class="btrack"><i class="bfill" style="width:100%"></i></div><span class="bnum">5.491 ★</span></div>
+<div class="brow"><b>2022</b><div class="btrack"><i class="bfill" style="width:37.2%"></i></div><span class="bnum">2.043</span></div>
+<div class="brow"><b>2023</b><div class="btrack"><i class="bfill" style="width:18.4%"></i></div><span class="bnum">1.012</span></div>
+<div class="brow"><b>2024</b><div class="btrack"><i class="bfill" style="width:20.1%"></i></div><span class="bnum">1.102</span></div>
+<div class="brow"><b>2025</b><div class="btrack"><i class="bfill" style="width:29.7%"></i></div><span class="bnum">1.629</span></div>
+<div class="brow"><b>2026*</b><div class="btrack"><i class="bfill" style="width:64%"></i></div><span class="bnum">3.514</span></div>
+</div>
+<div class="hist-foot">Contribuições por ano (commits, PRs e reviews — públicas + privadas), *2026 até setembro. Fonte: <a href="https://github.com/victorlcampos">github.com/victorlcampos</a> · 101 seguidores.</div>
+</section>
 
 <div class="section-title" id="arquivo"><h2>Quer fuçar? Tem mais no arsenal</h2><span class="n">do Rails ao Elixir — busque, filtre, abra</span></div>
 <div class="toolbar">
