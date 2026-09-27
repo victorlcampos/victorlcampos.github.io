@@ -14,8 +14,10 @@ header.top{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);backgroun
 header.top .wrap{display:flex;align-items:center;gap:12px;padding:12px 16px;flex-wrap:wrap}
 .logo{width:34px;height:34px;flex:none;border-radius:10px;background:linear-gradient(135deg,#ffb000,#ff4d00,#7c3aed,#00e5ff);display:grid;place-items:center;font-weight:900;color:#000}
 .brand{min-width:0}.brand b{font-size:15px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brand small{font-size:12px;color:var(--mut)}
-nav{margin-left:auto;display:flex;gap:14px;font-size:14px;color:var(--mut);flex-wrap:wrap}
-nav a{text-decoration:none}nav a:hover{color:#fff}
+nav{margin-left:auto;display:flex;gap:14px;font-size:14px;color:var(--mut);flex-wrap:wrap;align-items:center}
+nav a{text-decoration:none;white-space:nowrap}nav a:hover{color:#fff}
+nav a.gh{color:#fff;border:1px solid #ffffff35;padding:7px 14px;border-radius:999px;font-weight:700}
+nav a.gh:hover{background:#fff;color:#000;border-color:#fff}
 .hero{padding:56px 0 26px;text-align:left}
 .kicker{display:inline-flex;gap:8px;align-items:center;max-width:100%;font-size:11px;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;color:#000;background:var(--acc);padding:6px 12px;border-radius:999px;font-weight:800;overflow-wrap:anywhere}
 .hero h1{font-size:clamp(32px,6vw,68px);line-height:1.02;margin:18px 0 12px;letter-spacing:-.03em;overflow-wrap:break-word}
@@ -114,7 +116,11 @@ footer{padding:40px 0 70px;color:var(--mut);font-size:13px;overflow-wrap:break-w
 @media(max-width:640px){
 .wrap{padding:0 14px}
 header.top .wrap{padding:10px 14px;gap:10px}
-nav{font-size:13px;gap:12px}
+.brand{flex:1}
+nav{margin-left:0;flex-basis:100%;order:3;flex-wrap:nowrap;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:6px 11px;color:#d8d4cc}
+nav a.gh{border-color:#ffffff40;flex:none;color:#fff}
 .hero{padding:36px 0 18px}
 .kicker{font-size:10px;letter-spacing:.1em;white-space:normal}
 .hero p{font-size:15px}
@@ -145,7 +151,7 @@ nav{font-size:13px;gap:12px}
 <body>
 <header class="top"><div class="wrap">
 <div class="logo">V</div><div class="brand"><b>victorlcampos</b><small>rust · terminal · jogos</small></div>
-<nav><a href="#destaques">Projetos</a><a href="#historico">Histórico</a><a href="#arquivo">Lista completa</a><a href="https://github.com/victorlcampos">GitHub →</a></nav>
+<nav><a href="#destaques">Projetos</a><a href="#historico">Histórico</a><a href="#arquivo">Todos</a><a class="gh" href="https://github.com/victorlcampos">GitHub →</a></nav>
 </div></header>
 <div class="wrap">
 <div class="hero">
